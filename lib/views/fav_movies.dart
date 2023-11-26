@@ -10,14 +10,22 @@ class FavMoviesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     favMoviesController.getFavMovies();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Favourite Movies'),
+        title: Text(
+          'Favourite Movies',
+          style: textTheme.displayLarge!.copyWith(fontSize: 22),
+        ),
       ),
       body: Obx(() {
         if (favMoviesController.favMovies.isEmpty) {
-          return const Center(child: Text('No Items found'));
+          return Center(
+              child: Text(
+            'No Items found',
+            style: textTheme.displayMedium!.copyWith(fontSize: 18),
+          ));
         }
         return ResponsiveGridItem(
           data: favMoviesController.favMovies,

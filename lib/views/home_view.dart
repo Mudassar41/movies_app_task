@@ -8,16 +8,19 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return Scaffold(
         appBar: AppBar(
-          title: Text("Movies"),
+          title: Text(
+            "Movies",
+            style: textTheme.displayLarge!.copyWith(fontSize: 22),
+          ),
           actions: [
             IconButton(
                 onPressed: () {
-
                   Get.to(FavMoviesView());
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.favorite,
                   color: Colors.red,
                 ))

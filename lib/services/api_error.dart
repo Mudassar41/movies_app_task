@@ -27,18 +27,15 @@ class ApiError implements Exception {
 
         ///
         final statusCode = error.response?.statusCode;
+
+        print(statusCode);
         final message = error.response!.data['message'];
         if (message == null) {
-          String newMessage = error.response!.data['error'];
-          if (newMessage != null) {
-            title = newMessage;
-            description = 'Oops something went wrong!';
-            return;
-          }
+          description = 'Oops something went wrong!';
+        } else {
+          /// We can handle status code here according to our server
+          description = 'Oops something went wrong!';
         }
-
-        /// We can handle status code here according to our server
-        description = 'Oops something went wrong!';
 
         ///
         break;

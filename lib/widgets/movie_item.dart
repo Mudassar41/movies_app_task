@@ -19,6 +19,7 @@ class MovieItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     if (!isFavView) {
       movieController!.isFav(movie);
     }
@@ -49,15 +50,17 @@ class MovieItem extends StatelessWidget {
                         Text(
                           movie.title,
                           maxLines: 1,
-                          style: const TextStyle(
+
+                          style: textTheme.displayLarge!.copyWith(
                             fontSize: 14,
-                            fontWeight: FontWeight.bold,
                           ),
+
                         ),
                         Text(
                           'Release Date ${movie.releaseDate.toFormattedString}',
-                          style:
-                              const TextStyle(fontSize: 10, color: Colors.grey),
+                          style: textTheme.displayMedium!.copyWith(
+                            fontSize: 10,
+                          ),
                         ),
                       ],
                     ),
@@ -78,7 +81,6 @@ class MovieItem extends StatelessWidget {
                               !movieController!.isFavMovie.value;
 
                           await movieController!.addToFav(movie);
-
                         },
                         icon: Icon(
                           movieController!.isFavMovie.value

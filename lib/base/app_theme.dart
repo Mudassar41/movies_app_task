@@ -8,10 +8,13 @@ class AppTheme {
         useMaterial3: true,
         textTheme: TextTheme(
           displayLarge: GoogleFonts.inter(
-            textStyle: const TextStyle(),
+            textStyle: const TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           displayMedium: GoogleFonts.inter(
-            textStyle: const TextStyle(),
+            textStyle: const TextStyle(color: Colors.black54),
           ),
         ),
       );
